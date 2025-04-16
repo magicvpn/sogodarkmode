@@ -568,11 +568,6 @@ md-toolbar[sg-view="weekview"] md-icon,
 }
 */
 
-/* --- ADDED RULE TO MAKE SUBJECT TEXT WHITE --- */
-/* Make mail list subject text white */
-.sg-tile-subject {
-  color: #ffffff !important; /* Use #fff or white */
-}
 /* --- CKEditor Styling --- */
 
 /* Main CKEditor wrapper */
@@ -711,3 +706,9 @@ md-icon[md-svg-src*="base64"] svg {
 /* md-icon[md-svg-src*="base64"] svg path {
   fill: #f38ba8 !important;
 } */
+
+md-list-item.sg-message-list-item._md-button-wrap.md-with-secondary._md.md-clickable.md-default-theme.md-accent.md-bg.md-hue-2 {
+    background-color: rgb(66, 87, 74);
+}
+
+
