@@ -573,3 +573,141 @@ md-toolbar[sg-view="weekview"] md-icon,
 .sg-tile-subject {
   color: #ffffff !important; /* Use #fff or white */
 }
+/* --- CKEditor Styling --- */
+
+/* Main CKEditor wrapper */
+.ck.ck-editor {
+  background-color: #1e1e2e !important;
+  color: #cdd6f4 !important;
+  border: 1px solid #45475a !important;
+}
+
+/* Editor top bar (toolbar) */
+.ck.ck-editor__top {
+  background-color: #181825 !important; /* Mantle */
+  border-bottom: 1px solid #313244 !important;
+}
+
+/* Style the container of the toolbar items */
+.ck.ck-toolbar__items {
+  background-color: #181825 !important; /* Mantle background */
+}
+
+/* Toolbar items */
+.ck.ck-toolbar__items > .ck.ck-button {
+  background-color: transparent !important;
+  color: #cdd6f4 !important;
+}
+
+.ck.ck-toolbar__items > .ck.ck-button:hover {
+  background-color: #313244 !important; /* Surface0 */
+  color: #cba6f7 !important; /* Mauve */
+}
+
+.ck.ck-toolbar__items > .ck.ck-button.ck-on {
+  background-color: #45475a !important; /* Surface1 */
+}
+
+.ck.ck-toolbar__items > .ck.ck-button.ck-disabled {
+  opacity: 0.5 !important;
+}
+
+/* Button labels */
+.ck.ck-button__label {
+  color: #cdd6f4 !important;
+}
+
+/* Icons within buttons */
+.ck.ck-icon {
+  fill: #a6e3a1 !important; /* Default Green */
+}
+
+/* Hover state for icons */
+.ck.ck-toolbar__items > .ck.ck-button:hover .ck.ck-icon {
+  fill: #f9e2af !important; /* Yellow on hover */
+}
+
+/* Active/On state for icons */
+.ck.ck-toolbar__items > .ck.ck-button.ck-on .ck.ck-icon {
+  fill: #cba6f7 !important; /* Mauve when active */
+}
+
+/* Dropdown buttons */
+.ck.ck-dropdown__button {
+  background-color: transparent !important;
+  color: #cdd6f4 !important;
+}
+
+.ck.ck-dropdown__button:hover {
+  background-color: #313244 !important; /* Surface0 */
+  color: #cba6f7 !important; /* Mauve */
+}
+
+/* Dropdown panels */
+.ck.ck-dropdown__panel {
+  background-color: #1e1e2e !important; /* Base */
+  color: #cdd6f4 !important;
+  border: 1px solid #45475a !important;
+}
+
+/* Color selector in dropdown */
+.ck.ck-color-selector {
+  background-color: #1e1e2e !important; /* Base */
+}
+
+.ck.ck-color-selector__grid-wrapper {
+    border: 1px solid #45475a !important;
+}
+
+.ck.ck-color-palette__item__button {
+    border: 1px solid transparent !important; /* Remove default white border */
+}
+
+.ck.ck-color-palette__item__button:hover {
+    border: 1px solid #cba6f7 !important; /* Add a highlight on hover */
+}
+
+/* Font family and size dropdowns (they might have specific list items) */
+.ck.ck-list__item {
+    color: #cdd6f4 !important;
+    background-color: transparent !important;
+}
+
+.ck.ck-list__item:hover {
+    background-color: #313244 !important; /* Surface0 */
+    color: #cba6f7 !important; /* Mauve */
+}
+
+.ck.ck-list__item.ck-list__item_selected {
+    background-color: #45475a !important; /* Surface1 */
+    color: #cba6f7 !important; /* Mauve */
+}
+
+/* Editor content area */
+.ck.ck-editor__editable {
+  background-color: #1e1e2e !important;
+  color: #cdd6f4 !important;
+}
+
+/* Placeholder text in editor */
+.ck.ck-editor__editable:not(.ck-focused) .ck-placeholder::before {
+    color: #9399b2 !important; /* A slightly darker text color for placeholder */
+}
+
+/* Label for the editor (you mentioned a white label) */
+label[for="input_211"] { /* You might need to adjust the selector if this ID changes */
+    background-color: transparent !important; /* Ensure no background */
+    color: #cdd6f4 !important; /* Set text color */
+}
+
+/* --- End CKEditor Styling --- */
+
+/* Style the close icon */
+md-icon[md-svg-src*="base64"] svg {
+  fill: #f38ba8 !important; /* Red for the close icon */
+}
+
+/* Optional: Style the path inside the SVG if needed */
+/* md-icon[md-svg-src*="base64"] svg path {
+  fill: #f38ba8 !important;
+} */
