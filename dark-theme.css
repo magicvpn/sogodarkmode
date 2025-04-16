@@ -1,0 +1,575 @@
+/* SOGo Complete Dark Theme - Enhanced Email View v12 - NO INVERSION */
+/* Original theme with inbox selector improvements, advanced search dialog fix */
+/* MODIFIED: Targeted email content background/text without inversion */
+/* MODIFIED: Address Book subheaders and selected items styles */
+/* MODIFIED: Dropdown menus made opaque (refined attempt) */
+/* MODIFIED: Link colors changed to Mauve/Lavender/Pink */
+/* MODIFIED: Selected folder highlight color to Magenta (#cba6f7) */
+/* MODIFIED: Folder hover highlight color to Yellow (#f9e2af) */
+/* MODIFIED: Calendar view components background color fix */
+/* NOTE: Selected email item color could not be fixed via CSS override */
+/* Date: 2025-04-15 */
+
+/* --- Base Styles --- */
+body, .card, /* .mailer_listcontent, */
+.view-container, .md-dialog-container,
+div[ui-view]:not([ui-view="preview"]),
+.view, #messageView, .sg-web-view-container {
+  background-color: #1e1e2e !important; /* Base */
+  color: #cdd6f4 !important; /* Text */
+}
+
+/* Email Reading Pane */
+.mail-view-pane, .message-view-container, section.layout-column[flex],
+div[ui-view="preview"] {
+   background-color: #1e1e2e !important;
+}
+
+.message-header, .email-details md-toolbar { background-color: #181825 !important; } /* Mantle */
+
+/* --- Email Content Styling --- */
+/* Try to set a dark background without disrupting content */
+.message-body, .email-content iframe, .email-content div, #messageBody {
+  background-color: #1e1e2e !important; 
+}
+
+/* Directly target common email text elements to make them visible */
+.message-body p, .message-body span, .message-body div, 
+.message-body td, .message-body th, .message-body li,
+iframe[id^="gwt-uid-"] body p, iframe[id^="gwt-uid-"] body span, 
+iframe[id^="gwt-uid-"] body div, iframe[id^="gwt-uid-"] body td, 
+iframe[id^="gwt-uid-"] body th, iframe[id^="gwt-uid-"] body li,
+iframe#messageBody body p, iframe#messageBody body span, 
+iframe#messageBody body div, iframe#messageBody body td, 
+iframe#messageBody body th, iframe#messageBody body li {
+    color: #cdd6f4 !important;
+}
+
+/* Target email containers more specifically */
+.SOGoHTMLMail-CSS-Delimiter, .SOGoHTMLMail-CSS-Delimiter * {
+  background-color: #1e1e2e !important;
+}
+
+/* Target other common email structure elements */
+.message-body table, .email-content table, 
+iframe[id^="gwt-uid-"] body table, iframe#messageBody body table {
+  background-color: transparent !important;
+  border-color: #45475a !important;
+}
+
+blockquote {
+  border-left: 3px solid #cba6f7 !important; color: #bac2de !important; /* Mauve border */
+  background-color: #313244 !important; padding: 10px !important; margin-left: 5px !important;
+}
+md-card._md {
+    background-color: #1e1e2e !important; color: #cdd6f4 !important; border-radius: 8px;
+    box-shadow: none !important; border: 1px solid #313244 !important;
+}
+md-card * { color: inherit !important; }
+md-card-actions { background-color: transparent !important; padding-top: 12px !important; }
+
+.msg-container, .msg-view-container, .message-viewer, #messageContent,
+.sg-message-viewer, .sg-web-view, #rightPanel, .right-pane, .sg-right-pane,
+.sg-container-content {
+  background-color: #1e1e2e !important; color: #cdd6f4 !important;
+}
+
+/* Right Pane Empty State */
+div#detailView > md-content.layout-fill.layout-align-center-center {
+    background-color: #1e1e2e !important; color: #9399b2 !important;
+    display: flex !important; align-items: center !important; justify-content: center !important;
+}
+
+.toolbar, .sg-toolbar-item, md-toolbar, .sg-header-toolbar {
+  background-color: #181825 !important; /* Mantle */
+  color: #cdd6f4 !important;
+}
+
+/* Left Sidebar */
+.sg-nav-bar, .sg-section-list, .sg-folder-list, .md-sidenav-left {
+  background-color: #181825 !important; /* Mantle background */
+  color: #cdd6f4 !important;
+  border-right: 1px solid #313244 !important; /* Surface0 border */
+}
+.md-sidenav-left > md-content, .md-sidenav-left > div, .md-sidenav-left .md-list,
+.sg-folder-list, .sg-folder-list > div {
+    background-color: inherit !important;
+}
+.md-sidenav-left md-content { padding-bottom: 0 !important; }
+
+
+/* Mail List Area Background */
+.mailer_listcontent, .sg-message-list-container {
+    background-color: #181825 !important; /* Mantle background */
+}
+
+/* --- List Items --- */
+/* Generic List Items */
+md-list-item, tr, .sg-list-item {
+  border-color: #313244 !important; color: #cdd6f4 !important;
+}
+md-list-item span, tr span, .sg-list-item span,
+md-list-item strong, tr strong, .sg-list-item strong {
+    color: inherit !important;
+}
+/* Mail list row items (Non-selected) */
+.sg-mail-list-row {
+    background-color: #1e1e2e !important; /* Base */
+    border-bottom: 1px solid #313244 !important;
+    color: #cdd6f4 !important; /* Standard Text */
+}
+/* HOVER on mail list row (Center Panel) */
+.sg-mail-list-row:hover {
+  background-color: #313244 !important; /* Surface0 background on hover */
+  color: #cba6f7 !important; /* Mauve text */ /* This hover is different from folder hover */
+}
+.sg-mail-list-row:hover span, .sg-mail-list-row:hover strong { color: inherit !important; }
+
+/* --- UPDATED INBOX/FOLDER SELECTORS (Left Sidebar) --- */
+/* Target the mailbox list items */
+.sg-mailbox-list-item {
+    background-color: #1e1e2e !important;
+    border-bottom: 1px solid #313244 !important;
+    transition: background-color 0.2s ease;
+}
+
+/* Improve general text visibility for all folders */
+.sg-mailbox-list-item p.sg-item-name > span {
+    color: #cdd6f4 !important;
+    font-weight: normal !important;
+}
+
+/* Make unread folders more visible (folders with unseenCount) */
+.sg-mailbox-list-item p.sg-item-name > span.sg-font-medium {
+    color: #f5e0dc !important; /* Light peach color for unread folders */
+    font-weight: bold !important;
+}
+
+/* Style selected folders - Text Color */
+.sg-mailbox-list-item.sg-selected p.sg-item-name > span,
+.sg-mailbox-list-item.md-bg.sg-selected p.sg-item-name > span {
+    color: #cba6f7 !important; /* Mauve text for selected */
+    font-weight: bold !important;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Style folder icons */
+.sg-mailbox-list-item p.sg-item-name > md-icon {
+    color: #a6e3a1 !important; /* Green icon color */
+}
+
+/* Selected folder icon */
+.sg-mailbox-list-item.sg-selected p.sg-item-name > md-icon,
+.sg-mailbox-list-item.md-bg.sg-selected p.sg-item-name > md-icon {
+    color: #cba6f7 !important; /* Mauve icon for selected folder */
+}
+
+/* Selected folder background and left border */
+.sg-mailbox-list-item.sg-selected,
+.sg-mailbox-list-item.md-bg.sg-selected {
+    background-color: #313244 !important; /* Surface0 background */
+    border-left: 3px solid #f5c2e7 !important; /* Pink left border */
+    border-bottom-color: transparent !important;
+}
+
+/* --- Folder Hover Style Changes Start --- */
+/* Hover state background for mailbox items */
+.sg-mailbox-list-item:hover {
+    background-color: #313244 !important; /* Surface0 on hover (No Change) */
+}
+
+/* Hover state text color for mailbox items */
+.sg-mailbox-list-item:hover p.sg-item-name > span {
+    color: #f9e2af !important; /* Yellow text on hover */
+}
+
+/* Hover state icon color for mailbox items */
+.sg-mailbox-list-item:hover p.sg-item-name > md-icon {
+    color: #f9e2af !important; /* Yellow icon on hover */
+}
+/* --- Folder Hover Style Changes End --- */
+
+/* Badge styling for counter (Unread/Default) */
+.sg-mailbox-list-item p.sg-item-name > span.sg-counter-badge {
+    color: #11111b !important; /* Dark text on badge */
+    background-color: #cba6f7 !important; /* Mauve badge background */
+    font-weight: bold !important;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 20px;
+    text-align: center;
+    line-height: 1.2;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    margin-left: auto;
+}
+
+/* Selected folder badge */
+.sg-mailbox-list-item.sg-selected p.sg-item-name > span.sg-counter-badge,
+.sg-mailbox-list-item.md-bg.sg-selected p.sg-item-name > span.sg-counter-badge {
+    color: #11111b !important; /* Dark text */
+    background-color: #cba6f7 !important; /* Mauve badge */
+}
+/* --- END UPDATED INBOX/FOLDER SELECTORS --- */
+
+
+/* NOTE: The block attempting to style the selected email item background/text */
+/* has been REMOVED as CSS overrides were ineffective against dynamic styles. */
+/* The selected item will retain its default (green background, light text) appearance. */
+
+
+/* --- Links --- MODIFIED FOR MAGENTA --- */
+a, .sg-link { color: #cba6f7 !important; } /* Mauve (Magenta) links */
+a:visited, .sg-link:visited { color: #b4befe !important; } /* Lavender visited links */
+a:hover, .sg-link:hover { color: #f5c2e7 !important; } /* Pink hover links */
+
+/* Links inside message body */
+.message-body a, .email-content a, #messageView iframe a,
+iframe[id^="gwt-uid-"] body a, iframe#messageBody body a {
+    color: #cba6f7 !important; text-decoration: underline !important; /* Mauve */
+}
+.message-body a:visited, .email-content a:visited, #messageView iframe a:visited,
+iframe[id^="gwt-uid-"] body a:visited, iframe#messageBody body a:visited {
+    color: #b4befe !important; text-decoration: underline !important; /* Lavender */
+}
+.message-body a:hover, .email-content a:hover, #messageView iframe a:hover,
+iframe[id^="gwt-uid-"] body a:hover, iframe#messageBody body a:hover {
+    color: #f5c2e7 !important; text-decoration: none !important; /* Pink */
+}
+/* --- END Links --- */
+
+
+/* --- Buttons & Inputs --- */
+.md-button, button, .sg-button { color: #cdd6f4 !important; }
+.md-primary, .sg-primary-button { background-color: #cba6f7 !important; color: #11111b !important; } /* Mauve */
+.md-primary:hover, .sg-primary-button:hover { background-color: #f5c2e7 !important; } /* Pink */
+
+/* Darker Editor FAB */
+button.md-fab.md-accent {
+    background-color: #45475a !important; color: #a6e3a1 !important; /* Surface1 + Green Icon */
+}
+button.md-fab.md-accent:hover {
+    background-color: #585b70 !important; /* Surface2 on hover */
+}
+button.md-fab.md-accent md-icon {
+    color: #a6e3a1 !important;
+}
+
+input, textarea, md-input-container, .sg-input {
+  background-color: #313244 !important; color: #cdd6f4 !important;
+  border: 1px solid #45475a !important; border-radius: 4px;
+}
+input:focus, textarea:focus, md-input-container.md-input-focused .md-input {
+    border-color: #cba6f7 !important; /* Mauve */
+}
+md-dialog, .sg-dialog {
+  background-color: #1e1e2e !important; color: #cdd6f4 !important;
+  border: 1px solid #45475a !important; border-radius: 8px;
+}
+md-dialog-actions { background-color: #181825 !important; }
+
+/* --- Other UI Elements --- */
+.calendar-container, .fc-view, .fc-day, .sg-calendar-view { background-color: #1e1e2e !important; color: #cdd6f4 !important; }
+.fc-head, .fc-header, .sg-calendar-header { background-color: #181825 !important; }
+.fc-event, .sg-calendar-event { background-color: #cba6f7 !important; border-color: #f5c2e7 !important; color: #11111b !important; } /* Mauve */
+
+md-icon, .sg-icon { color: #a6e3a1 !important; } /* Default Green */
+
+/* --- Menu Styling Fix START --- */
+/* Applying opaque background to common menu containers and ensuring opacity */
+body .md-menu-content, /* Inner content area */
+body .sg-menu,
+body .md-select-menu-container, /* Container for select dropdowns */
+.md-open-menu-container .md-whiteframe-z2, /* Outer frame/shadow container for menus */
+md-menu-content { /* Target element type directly just in case */
+    background-color: #1e1e2e !important; /* Base */
+    color: #cdd6f4 !important;
+    border: 1px solid #45475a !important;
+    opacity: 1 !important; /* Ensure not transparent */
+    /* Re-apply default shadow just in case it was being removed */
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12) !important;
+}
+
+.md-menu-item, .sg-menu-item {
+    color: #cdd6f4 !important;
+    background-color: transparent !important; /* Ensure items don't block container BG */
+}
+.md-menu-item:hover, .sg-menu-item:hover {
+    background-color: #313244 !important; /* Surface0 */
+    color: #cba6f7 !important; /* Mauve */
+}
+/* --- Menu Styling Fix END --- */
+
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #181825; }
+::-webkit-scrollbar-thumb { background: #45475a; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #585b70; }
+
+/* --- ADVANCED SEARCH DIALOG FIXES --- */
+/* Main dialog background */
+.md-dialog-content, md-dialog-content, .advanced-search {
+  background-color: #1e1e2e !important;
+  color: #cdd6f4 !important;
+}
+
+/* Advanced search toolbar */
+.md-toolbar-tools.sg-toolbar-auto.advanced-search {
+  background-color: #181825 !important;
+  color: #cdd6f4 !important;
+  border-bottom: 1px solid #313244 !important;
+}
+
+/* Input containers and inputs */
+.advanced-search md-input-container {
+  background-color: transparent !important;
+  color: #cdd6f4 !important;
+}
+
+.advanced-search md-input-container input,
+.advanced-search md-input-container .md-input {
+  background-color: #313244 !important;
+  color: #cdd6f4 !important;
+  border-color: #45475a !important;
+}
+
+.advanced-search md-input-container label {
+  color: #a6adc8 !important;
+}
+
+/* Fix dropdowns/select menus in advanced search */
+.advanced-search md-select,
+.advanced-search .md-select-value,
+.advanced-search .pseudo-input-field {
+  background-color: #313244 !important;
+  color: #cdd6f4 !important;
+  border-color: #45475a !important;
+}
+
+.advanced-search md-select:not([disabled]):focus .md-select-value,
+.advanced-search .md-select-value.md-select-placeholder {
+  color: #cdd6f4 !important;
+}
+
+.advanced-search .md-select-icon {
+  color: #a6e3a1 !important;
+}
+
+/* Checkboxes */
+.advanced-search md-checkbox .md-icon {
+  border-color: #45475a !important;
+}
+
+.advanced-search md-checkbox.md-checked .md-icon {
+  background-color: #cba6f7 !important; /* Mauve */
+}
+
+.advanced-search md-checkbox .md-label {
+  color: #cdd6f4 !important;
+}
+
+/* Chips */
+.advanced-search md-chips {
+  background-color: #313244 !important;
+  border-color: #45475a !important;
+}
+
+.advanced-search md-chips-wrap,
+.advanced-search .md-chip-input-container {
+  background-color: #313244 !important;
+}
+
+/* Search in selector */
+.advanced-search .search-inline.advanced-search-in .pseudo-input-container {
+  background-color: transparent !important;
+}
+
+.advanced-search .search-inline.advanced-search-in .pseudo-input-label {
+  color: #a6adc8 !important;
+}
+
+/* Date picker */
+.advanced-search md-datepicker,
+.advanced-search .md-datepicker-input-container {
+  background-color: #313244 !important;
+  color: #cdd6f4 !important;
+}
+
+.advanced-search md-datepicker input.md-datepicker-input {
+  background-color: #313244 !important;
+  color: #cdd6f4 !important;
+}
+
+.advanced-search .md-datepicker-triangle-button {
+  background-color: #45475a !important;
+  color: #a6e3a1 !important;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 959px) {
+  .advanced-search {
+    flex-direction: column !important;
+  }
+
+  .advanced-search md-input-container,
+  .advanced-search .search-inline {
+    width: 100% !important;
+  }
+}
+/* --- END ADVANCED SEARCH DIALOG FIXES --- */
+
+
+/* --- START Added Rules for Address Book View --- */
+
+/* Style the section subheaders (e.g., "Address Books", "Subscriptions") */
+.md-subheader {
+    background-color: #181825 !important; /* Mantle Background */
+    color: #cdd6f4 !important; /* Standard Text */
+    border-bottom: 1px solid #313244 !important; /* Add separator like toolbars */
+}
+
+/* Style the selected/active address book list item */
+/* Targets class combination likely used for selection in default theme */
+md-list[role="list"] md-list-item.md-default-theme.md-background.md-bg.md-hue-1 {
+    background-color: #313244 !important; /* Surface0 Background (Matches selected folder BG) */
+}
+
+/* Style the text and icon inside the selected address book item */
+md-list[role="list"] md-list-item.md-default-theme.md-background.md-bg.md-hue-1 p.sg-item-name,
+md-list[role="list"] md-list-item.md-default-theme.md-background.md-bg.md-hue-1 md-icon {
+     color: #cba6f7 !important; /* Mauve Text/Icon (Matches selected folder text/icon) */
+     background-color: transparent !important; /* Ensure no bg interference */
+}
+
+/* --- END Added Rules for Address Book View --- */
+
+
+/* --- Email Content Direct Text Color Fixes --- */
+/* These rules target specific text elements that might need more forceful overrides */
+.message-body .body, .message-body .content, .message-body .main,
+.message-body .text, .message-body article, .message-body section {
+  color: #cdd6f4 !important;
+}
+
+/* Override common mail client default colors */
+[style*="color: black"], [style*="color: #000"], [style*="color: #000000"],
+[style*="color: rgb(0, 0, 0)"], [style*="color:black"], [style*="color:#000"],
+.message-body [style*="color: black"], .message-body [style*="color: #000"] {
+  color: #cdd6f4 !important;
+}
+
+/* Target Amazon-specific email elements */
+.rootContent, .rio-card-text, .rio-text, .footerCard {
+  background-color: #1e1e2e !important;
+  color: #cdd6f4 !important;
+}
+
+/* Target common email marketing platforms */
+.main-content, .content-wrapper, .email-body, .email-wrapper,
+.email-container, .container, .wrapper, .column {
+  background-color: #1e1e2e !important;
+  color: #cdd6f4 !important;
+}
+
+/* Force iframe background */
+iframe.sg-mail-part, .mailer_htmlcontent iframe {
+  background-color: #1e1e2e !important;
+}
+
+/* Additional table-based email fixes */
+table, tr, td, th {
+  background-color: transparent !important;
+  border-color: #45475a !important;
+}
+
+/* --- END Email Content Direct Text Color Fixes --- */
+
+/* --- CALENDAR VIEW FIXES --- */
+/* Fix for the calendar view white background */
+.daysView, md-content.md-flex._md[sg-view="weekview"], 
+.calendarView, .allDaysView, .allDaysView--container, 
+.md-flex.allDaysView--container, .days {
+  background-color: #1e1e2e !important;
+  color: #cdd6f4 !important;
+}
+
+/* Fix for day cells and hours */
+.hourCells, .hour, .clickableHourCell, 
+.day, .days .day, .dayLabels .day, .daysView .days .day {
+  background-color: #1e1e2e !important;
+  color: #cdd6f4 !important;
+  border-color: #313244 !important;
+}
+
+/* Specific fix for the toolbar in calendar view */
+md-toolbar.daysView._md.layout-row._md-toolbar-transitions[sg-view="weekview"] {
+  background-color: #181825 !important;
+  color: #cdd6f4 !important;
+}
+
+/* Fix for minutes markers in hour cells */
+.minutes15, .minutes30, .minutes45 {
+  border-color: #313244 !important;
+}
+
+/* Date background colors */
+.sg-md-display-2--thin, .sg-md-display-2, .sg-md-caption {
+  background-color: transparent !important;
+  color: #cdd6f4 !important;
+}
+
+/* Fix for today highlight */
+.dayOfToday {
+  background-color: #313244 !important;
+  border-color: #cba6f7 !important;
+}
+
+.dayOfToday .sg-md-display-2 {
+  color: #cba6f7 !important;
+}
+
+/* Fix for weekend days */
+.weekEndDay {
+  background-color: #181825 !important;
+  border-color: #313244 !important;
+}
+
+/* Datepicker specific styling */
+md-datepicker, .md-datepicker-input-container, .md-datepicker-button,
+.md-datepicker-calendar-pane, .md-datepicker-input-mask, .md-datepicker-calendar {
+  background-color: #313244 !important;
+  color: #cdd6f4 !important;
+}
+
+/* Style the event blocks in calendar */
+.sg-event, .sg-event--ghost {
+  background-color: #cba6f7 !important;
+  color: #11111b !important;
+  border-color: #f5c2e7 !important;
+}
+
+/* Calendar specific icons */
+md-toolbar[sg-view="weekview"] md-icon,
+.md-icon-button md-icon.material-icons {
+  color: #a6e3a1 !important;
+}
+
+/* Out of day styling */
+.outOfDay {
+  background-color: #181825 !important;
+  color: #7f849c !important;
+}
+
+/* --- END CALENDAR VIEW FIXES --- */
+
+/* Keep problematic catch-all rule commented out */
+/*
+[class*="panel"], [class*="view"], [class*="content"], [class*="container"]:not(.md-select-menu-container):not(md-input-container) {
+  background-color: #1e1e2e !important;
+}
+*/
+
+/* --- ADDED RULE TO MAKE SUBJECT TEXT WHITE --- */
+/* Make mail list subject text white */
+.sg-tile-subject {
+  color: #ffffff !important; /* Use #fff or white */
+}
