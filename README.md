@@ -1,5 +1,7 @@
 # SOGo Dark Mode for Mailcow Dockerized
 
+![Overview of SOGo Dark Mode](overview.png)
+
 This guide explains how to change to dark mode for your SOGo webmail interface within a Mailcow Dockerized setup.
 
 **Important Note:** This dark mode implementation is not perfect. Specifically, the menu for adding items to the calendar currently has a broken dark theme. Please be aware of this limitation if you heavily rely on the calendar.
